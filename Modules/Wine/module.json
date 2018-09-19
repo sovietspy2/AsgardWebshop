@@ -1,0 +1,18 @@
+{
+    "name": "Wine",
+    "alias": "wine",
+    "description": "",
+    "keywords": [],
+    "version": "1.0.0",
+	"active": 1,
+    "order": 1,
+    "providers": [
+        "Modules\\Wine\\Providers\\WineServiceProvider",
+        "Modules\\Wine\\Providers\\RouteServiceProvider"
+    ],
+    "aliases": {},
+    "files": [
+        
+    ],
+    "requires": []
+}
