@@ -18,7 +18,7 @@ class Wine extends Model
 
     public function getPictureAttribute()
     {
-        return $this->filesByZone('file')->first();
+        return $this->filesByZone('picture')->first();
     }
 
 }

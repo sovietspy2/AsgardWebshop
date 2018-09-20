@@ -34,10 +34,6 @@ class WineController extends AdminBaseController
     {
         $wines = $this->wine->all();
 
-        foreach ($wines as $wine) {
-            $wine;
-        }
-
         return view('wine::admin.wines.index', compact('wines'));
     }
 
