@@ -8,7 +8,11 @@ class CreateWineRequest extends BaseFormRequest
 {
     public function rules()
     {
-        return [];
+        return ['name' => 'required|max:255',
+            'type' => 'required|',
+            'price' => 'required|numeric',
+            'identifier' => 'required|numeric|min:1|unique:wine__wines'
+        ];
     }
 
     public function translationRules()

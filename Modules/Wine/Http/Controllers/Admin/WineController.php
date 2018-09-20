@@ -56,29 +56,11 @@ class WineController extends AdminBaseController
     public function store(CreateWineRequest $request)
     {
 
-        $validator = Validator::make($request->all(), [
-            'name' => 'required|max:255',
-            'type' => 'required|',
-            'price' => 'required|numeric',
-            'identifier' => 'required|numeric|min:1|unique:wine__wines',
-            //'file' => 'mimes:jpeg,bmp,png'
-        ]);
-
-
         $currentWine = $request->all();
 
-        if ($request->hasfile('file')) {
-            $file = $request->file('file');
-            $extension = $file->getClientOriginalExtension();
-            $filename = time() . '.' . $extension;
-            $file->move('uploads/appsetting/', $filename);
-            $currentWine->file = $filename;
-        }
-
-
-        if ($validator->fails()) {
+        if (!$request->validated()) {
             return redirect('backend/wine/wines/create')
-                ->withErrors($validator)
+                ->withErrors($request)
                 ->withInput();
         }
 
@@ -111,16 +93,9 @@ class WineController extends AdminBaseController
     public function update(Wine $wine, UpdateWineRequest $request)
     {
 
-        $validator = Validator::make($request->all(), [
-            'name' => 'required|max:255',
-            'type' => 'required|',
-            'price' => 'required|numeric',
-            'identifier' => 'required|numeric|min:1',
-        ]);
-
-        if ($validator->fails()) {
+        if (!$request->validated()) {
             return redirect('backend/wine/wines/'.$wine->id.'/edit')
-                ->withErrors($validator)
+                ->withErrors($request)
                 ->withInput();
         }
 
