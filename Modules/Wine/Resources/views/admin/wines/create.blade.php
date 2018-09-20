@@ -23,7 +23,7 @@
         </div>
     @endif
 
-    {!! Form::open(['route' => ['admin.wine.wine.store'], 'method' => 'post', 'file'=> true]) !!}
+    {!! Form::open(['route' => ['admin.wine.wine.store'], 'method' => 'post']) !!}
     <div class="row">
         <div class="col-md-12">
             <div class="nav-tabs-custom">

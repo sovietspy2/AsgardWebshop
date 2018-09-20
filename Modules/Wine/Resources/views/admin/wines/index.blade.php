@@ -32,6 +32,7 @@
                                 <th>név</th>
                                 <th>azonosító</th>
                             </tr>
+
                             </thead>
                             <tbody>
                             <?php if (isset($wines)): ?>
@@ -41,6 +42,9 @@
                                     <a href="{{ route('admin.wine.wine.edit', [$wine->id]) }}">
                                         {{ $wine->name }}
                                     </a>
+                                </td>
+                                <td>
+                                    <img src="{{ Imagy::getThumbnail($wine->picture->path, 'miniProfileThumb') }}" alt="hey there" />
                                 </td>
                                 <td>
                                     {{ $wine->identifier }}

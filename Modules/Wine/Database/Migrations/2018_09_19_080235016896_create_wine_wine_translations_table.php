@@ -15,8 +15,6 @@ class CreateWineWineTranslationsTable extends Migration
         Schema::create('wine__wine_translations', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            // Your translatable fields
-
             $table->integer('wine_id')->unsigned();
             $table->string('locale')->index();
             $table->unique(['wine_id', 'locale']);

@@ -7,6 +7,7 @@ use Modules\Core\Traits\CanPublishConfiguration;
 use Modules\Core\Events\BuildingSidebar;
 use Modules\Core\Events\LoadingBackendTranslations;
 use Modules\Wine\Events\Handlers\RegisterWineSidebar;
+use Modules\Media\Image\ThumbnailManager;
 
 class WineServiceProvider extends ServiceProvider
 {
@@ -40,6 +41,17 @@ class WineServiceProvider extends ServiceProvider
         $this->publishConfig('wine', 'permissions');
 
         $this->loadMigrationsFrom(__DIR__ . '/../Database/Migrations');
+
+        $this->app[ThumbnailManager::class]->registerThumbnail('miniProfileThumb', [
+            'resize' => [
+                'width' => 100,
+                'height' => null,
+                'callback' => function ($constraint) {
+                    $constraint->aspectRatio();
+                    $constraint->upsize();
+                },
+            ],
+        ]);
     }
 
     /**
