@@ -30,6 +30,7 @@
                             <thead>
                             <tr>
                                 <th>név</th>
+                                <th>kép</th>
                                 <th>azonosító</th>
                             </tr>
 
@@ -44,7 +45,9 @@
                                     </a>
                                 </td>
                                 <td>
-                                    <img src="{{ Imagy::getThumbnail($wine->picture->path, 'miniProfileThumb') }}" alt="hey there" />
+                                    <?php if (isset($wines->picture)): ?>
+                                        <img src="{{ Imagy::getThumbnail($wine->picture->path, 'miniProfileThumb') }}" alt="hey there" />
+                                    <?php endif; ?>
                                 </td>
                                 <td>
                                     {{ $wine->identifier }}
@@ -62,6 +65,7 @@
                             <tfoot>
                             <tr>
                                 <th>név</th>
+                                <th>kép</th>
                                 <th>azonosító</th>
                             </tr>
                             </tfoot>

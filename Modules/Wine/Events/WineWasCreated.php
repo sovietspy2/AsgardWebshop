@@ -6,7 +6,7 @@
  * Time: 12:14 PM
  */
 
-namespace Modules\MediaLinkExample\Events;
+namespace Modules\Wine\Events;
 use Modules\Media\Contracts\StoringMedia;
 use Modules\Wine\Entities\Wine;
 class WineWasCreated implements StoringMedia

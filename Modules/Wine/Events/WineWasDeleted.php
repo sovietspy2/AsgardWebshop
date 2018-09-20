@@ -6,7 +6,7 @@
  * Time: 12:20 PM
  */
 
-namespace Modules\MediaLinkExample\Events;
+namespace Modules\Wine\Events;
 use Modules\Media\Contracts\DeletingMedia;
 use Modules\Wine\Entities\Wine;
 class WineWasDeleted implements DeletingMedia
