@@ -61,7 +61,20 @@ class WineController extends AdminBaseController
             'type' => 'required|',
             'price' => 'required|numeric',
             'identifier' => 'required|numeric|min:1|unique:wine__wines',
+            //'file' => 'mimes:jpeg,bmp,png'
         ]);
+
+
+        $currentWine = $request->all();
+
+        if ($request->hasfile('file')) {
+            $file = $request->file('file');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extension;
+            $file->move('uploads/appsetting/', $filename);
+            $currentWine->file = $filename;
+        }
+
 
         if ($validator->fails()) {
             return redirect('backend/wine/wines/create')
@@ -70,7 +83,7 @@ class WineController extends AdminBaseController
         }
 
 
-        $this->wine->create($request->all());
+        $this->wine->create($currentWine);
 
         return redirect()->route('admin.wine.wine.index')
             ->withSuccess(trans('core::core.messages.resource created', ['name' => trans('wine::wines.title.wines')]));

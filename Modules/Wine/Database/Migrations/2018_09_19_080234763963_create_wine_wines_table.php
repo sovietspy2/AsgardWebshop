@@ -17,11 +17,10 @@ class CreateWineWinesTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('type');
-            $table->integer('identifier')->unique();
+            $table->integer('identifier');//->unique();
             $table->integer('year');
             $table->string('price');
             //$table->char('re_type');
-            //$table->binary("picture");
             $table->timestamps();
         });
     }

@@ -11,7 +11,7 @@ class Wine extends Model
 
     protected $table = 'wine__wines';
     public $translatedAttributes = [];
-    protected $fillable = ['name', 'type', 'price', 'year', 'identifier'];
+    protected $fillable = ['name', 'type', 'price', 'year', 'identifier', 'file'];
 
 
 }
