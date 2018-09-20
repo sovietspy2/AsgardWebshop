@@ -6,6 +6,6 @@
         {!! Form::normalInput('identifier', 'Product Identifier', $errors, $wine) !!}
 {{--        {!! Form::normalInput('recycle_type', 'Recylce type', $errors, $wine) !!}--}}
         {!! Form::normalInput('price', 'Price', $errors, $wine) !!}
-        @mediaSingle('file', $wine)
+        @mediaSingle('picture', $wine)
     </p>
 </div>
