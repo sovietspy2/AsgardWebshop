@@ -45,7 +45,7 @@
                                     </a>
                                 </td>
                                 <td>
-                                    <?php if (isset($wines->picture)): ?>
+                                    <?php if (isset($wine->picture)): ?>
                                         <img src="{{ Imagy::getThumbnail($wine->picture->path, 'miniProfileThumb') }}" alt="hey there" />
                                     <?php endif; ?>
                                 </td>

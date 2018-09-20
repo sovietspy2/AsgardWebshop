@@ -24,6 +24,7 @@
                         <th>Identifier</th>
                         <th>Year</th>
                         <th>Price</th>
+                        <th>Picture</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -35,6 +36,9 @@
                         <td>{{ $wine->identifier }}</td>
                         <td>{{ $wine->year }}</td>
                         <td>{{ $wine->price }}</td>
+                        <?php if (isset($wine->picture)): ?>
+                            <td><img src="{{ Imagy::getThumbnail($wine->picture->path, 'miniProfileThumb') }}" alt="hey there" /></td>
+                        <?php endif; ?>
                     </tr>
                     <?php endforeach; ?>
                     <?php endif; ?>
@@ -46,6 +50,7 @@
                         <th>Identifier</th>
                         <th>Year</th>
                         <th>Price</th>
+                        <th>Picture</th>
                     </tr>
                     </tfoot>
                 </table>
